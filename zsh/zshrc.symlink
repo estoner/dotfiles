@@ -5,6 +5,7 @@ autoload -Uz compinit && compinit
 prompt pure
 
 export LSCOLORS=gxfxcxdxbxegedabagacad
+export CLICOLOR=1
 
 HISTSIZE=1000
 SAVEHIST=1000
@@ -14,7 +15,7 @@ setopt inc_append_history autocd notify hist_expire_dups_first
 setopt vi
 setopt sharehistory hist_ignore_dups
 
-source ~/dotfiles/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.dotfiles/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -31,7 +32,6 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export CC="gcc"
 
-export CLICOLOR=1
 
 #alias devtunnel='ssh -L 0.0.0.0:8180:localhost:8280 localhost -p 55057 -f -N'
 alias bastion='ssh -D 1080 evanstoner@bastion.dmz.banksimple.com'
