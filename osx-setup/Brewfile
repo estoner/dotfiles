@@ -1,0 +1,9 @@
+# this is a brewfile
+# run `brew bundle Brewfile`
+
+install ansible
+install brew-cask
+install nmap
+install phantomjs
+install ssh-copy-od
+install the_silver_searcher

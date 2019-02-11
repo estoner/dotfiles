@@ -1,0 +1,14 @@
+Host *
+ ForwardAgent yes
+ ForwardX11 no
+ PubkeyAuthentication yes
+ PasswordAuthentication yes
+ CheckHostIP yes
+ ConnectTimeout 0
+ StrictHostKeyChecking ask
+ RSAAuthentication yes
+ IdentityFile ~/.ssh/id_home_mbp_rsa
+ Protocol 2,1
+ GSSAPIAuthentication yes
+ GSSAPIDelegateCredentials yes
+ GSSAPITrustDNS yes

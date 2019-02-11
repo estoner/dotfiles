@@ -1,0 +1,7 @@
+Install by running bootstrap
+
+To add new submodules:
+cd ~/.dotfiles
+git submodule add https://github.com/vim-scripts/vim-emblem.git vim/vim.symlink/bundle/vim-emblem
+
+Note that vim plugins are now managed with vim-plug, not via git submodules.

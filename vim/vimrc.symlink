@@ -1,0 +1,100 @@
+set nocompatible                " choose no compatibility with legacy vi
+" using vim-plug to manage plugins
+" all plugins go between the #begin and #end
+call plug#begin('~/.vim/plugged')
+
+" syntaxes
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-markdown'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'mxw/vim-jsx'
+Plug 'ElmCast/elm-vim', { 'for': 'elm' }
+
+" feature additions
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'bling/vim-airline'
+
+" appearance changes
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-vividchalk'
+Plug 'ap/vim-css-color'
+
+call plug#end()
+
+"" let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+
+set autoread
+color vividchalk
+
+syntax enable
+set encoding=utf-8
+set showcmd                     " display incomplete commands
+filetype plugin indent on       " load file type plugins + indentation
+set clipboard=unnamed
+
+"" Whitespace
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set expandtab                   " use spaces, not tabs (optional)
+set backspace=indent,eol,start  " backspace through everything in insert mode
+set autoindent
+set smartindent
+set formatoptions+=n
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
+"" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
+"" UI
+set number                      " line numbers
+set showmatch
+set mat=5
+set virtualedit=block
+
+"" nmap <Leader>/ <Plug>NERDCommenterToggle<CR>
+
+"" Persistent undo
+if exists("+undofile")
+  set udf
+  set undodir=~/.vimundo
+endif
+
+" Store temporary files in a central spot
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Powerline & Airline required config
+set laststatus=2 " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+let g:airline_symbols.branch = '⎇'
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+
+let g:Powerline_symbols = 'fancy'
+
+" Use The Silver Searcher instead of Ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ag_working_path_mode="r"
+
+" ctrl-p stuff
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/temp/*,*/components/*
+
+let g:jsx_ext_required = 0
+
+"let g:elm_format_autosave = 1

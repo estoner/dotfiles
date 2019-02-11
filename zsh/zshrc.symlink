@@ -1,0 +1,65 @@
+fpath=( "$HOME/.zfunctions" $fpath )
+autoload -U promptinit && promptinit
+autoload -Uz compinit && compinit
+#PURE_PROMPT_SYMBOL=☥
+prompt pure
+
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+setopt inc_append_history autocd notify hist_expire_dups_first
+setopt vi
+setopt sharehistory hist_ignore_dups
+
+source ~/dotfiles/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# set shell to vi-mode
+bindkey -v
+
+export EDITOR=vim
+# alias vim=nvim
+# export EDITOR=nvim
+
+# Customize to your needs...
+export PATH="$HOME/bin:./bin:/usr/local/sbin:/usr/bin:/usr/local/bin:/usr/local/git/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export CC="gcc"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+export ANSIBLE_HOSTS=~/.ansible_hosts
+export GOPATH=$HOME/.go
+export CLICOLOR=1
+
+alias devtunnel='ssh -L 0.0.0.0:8180:localhost:8280 localhost -p 55057 -f -N'
+alias bastion='ssh -D 1080 evanstoner@bastion.dmz.banksimple.com'
+
+export CURL_CA_BUNDLE=/usr/local/etc/openssl/cert.pem
+export DYLD_LIBRARY_PATH=/usr/local/Cellar/curl/7.44.0/lib:$DYLD_LIBRARY_PATH
+
+# set custom email address for work machines
+if [[ -f ~/.set-work-email.zsh ]] then
+  source ~/.set-work-email.zsh
+else
+  export EMAIL="evan.stoner@gmail.com"
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash

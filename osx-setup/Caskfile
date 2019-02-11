@@ -1,0 +1,22 @@
+# this is a brewfile
+# run `brew bundle Caskfile`
+
+cask install alfred
+cask install dropbox
+cask install onepassword
+cask install notational-velocity
+cask install slack
+cask install google-chrome
+cask install firefox
+cask install iterm2
+cask install minecraft
+cask install arq
+cask install arduino
+cask install calibre
+cask install inform
+cask install kindle
+cask install sidestep
+cask install sparrow
+cask install virtualbox
+cask install node
+
