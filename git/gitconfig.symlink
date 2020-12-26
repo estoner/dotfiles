@@ -15,7 +15,7 @@
   untracked = cyan
 [user]
 	name = Evan Stoner
-	email = evan.stoner@gmail.com
+	email = 28596+estoner@users.noreply.github.com
 [mergetool]
 	keepBackup = false
 [push]
