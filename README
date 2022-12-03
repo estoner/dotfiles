@@ -1,4 +1,6 @@
-Install by running bootstrap
+Install:
+1. run ./bootstrap
+2. open vim and type :PlugInstall
 
 To add new submodules:
 cd ~/.dotfiles

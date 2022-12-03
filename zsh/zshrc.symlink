@@ -31,6 +31,7 @@ export EDITOR=vim
 export PATH="$HOME/bin:./bin:/usr/local/sbin:/usr/bin:/usr/local/bin:/usr/local/git/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export CC="gcc"
 
 
@@ -43,7 +44,12 @@ export DYLD_LIBRARY_PATH=/usr/local/Cellar/curl/7.44.0/lib:$DYLD_LIBRARY_PATH
 if [[ -f ~/.set-work-email.zsh ]] then
   source ~/.set-work-email.zsh
 else
-  export EMAIL="evan.stoner@gmail.com"
+  export EMAIL="evan@evanstoner.com"
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+eval $(/opt/homebrew/bin/brew shellenv)
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+export PATH="/opt/homebrew/opt/ruby@2.7/bin:$PATH"
+export PATH="/opt/homebrew/lib/ruby/gems/2.7.0/bin:$PATH"

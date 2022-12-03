@@ -24,3 +24,5 @@
       insteadOf = https://github.com/
 [http]
 	sslcainfo = /usr/local/etc/openssl/cert.pem
+[pull]
+	rebase = false
